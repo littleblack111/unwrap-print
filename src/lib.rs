@@ -18,7 +18,12 @@ impl<T, E: Debug> PrintableResult<T, E> for Result<T, E> {
             Ok(value) => Ok(value),
             Err(err) => {
                 if cfg!(feature = "track-caller") {
-                    println!("Error at {}:{}:{}: {err:#?}", caller.file(), caller.line(), caller.column());
+                    println!(
+                        "Error at {}:{}:{}: {err:#?}",
+                        caller.file(),
+                        caller.line(),
+                        caller.column()
+                    );
                 } else {
                     println!("Error: {err:#?}");
                 }
@@ -38,7 +43,12 @@ impl<T> PrintableResult<T, ()> for Option<T> {
             Some(value) => Ok(value),
             None => {
                 if cfg!(feature = "track-caller") {
-                    println!("Error at {}:{}:{}: Option::None", caller.file(), caller.line(), caller.column());
+                    println!(
+                        "Error at {}:{}:{}: Option::None",
+                        caller.file(),
+                        caller.line(),
+                        caller.column()
+                    );
                 } else {
                     println!("Error: Option::None");
                 }
