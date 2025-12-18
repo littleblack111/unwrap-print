@@ -1,6 +1,6 @@
 [package]
 name = "unwrap-print"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "Easily outputting your Results and Options to user"
 license = "GPL-3.0-or-later"
